@@ -13,26 +13,35 @@ The overlay is rectangular portrait mode, with the dimensions somewhat thin. Pla
 
 Player lives – 3
 	This counter decreases if the spaceship is hit with an enemy projectile or collides with an enemy.
-	The spaceship gains 3 seconds of invincibility after it loses a life.
-	The lives counter should display on the bottom left corner for player one. In the case of multiplayer, player two should be on the bottom left.
-	The counter should not be in numbers but hearts; there should be three red hearts on the bottom corners for each player at the start of the game.
+
+  The spaceship gains 3 seconds of invincibility after it loses a life.
+
+  The lives counter should display on the bottom left corner for player one. In the case of multiplayer, player two should be on the bottom left.
+
+  The counter should not be in numbers but hearts; there should be three red hearts on the bottom corners for each player at the start of the game.
 
 Hotkeys – WASD and Arrows(Up,down,left,right)
-	To fire, player one uses F, and player two uses M
-	The spaceships should move relatively fast, faster than the aliens for sure. Within the span of 1 second, the player should be able to move from the left border to the right border of the screen.
-	The firing rate, at first, shouldn’t be that great – 2 bullets/second.
+
+  To fire, player one uses F, and player two uses M
+
+  The spaceships should move relatively fast, faster than the aliens for sure. Within the span of 1 second,the player should be able to move from the left border to the right border of the screen.
+
+  The firing rate, at first, shouldn’t be that great – 2 bullets/second.
 
 Enemies – enemy spaceships
 	There are 5 stages to the game, the end of each stage characterized by a wave of enemy spaceships.
 	All Spaceships should move forward at the base speed of screen length/ 15 seconds.
 	Three types of alien spaceships:
 		Regular pawns – don’t fire. Base health – 3
-		Big, meaty dudes – fire rate 1 bullet/  10 second. Base health – 9
+
+    Big, meaty dudes – fire rate 1 bullet/  10 second. Base health – 9
     	Should be bigger than the average enemy
+
     Offensive, fast speedy bois – fire rate 1 bullet/ 4 second. Base health – 2
     	MOVES LEFT AND RIGHT – Base movement speed – screen width/10 seconds
       Should move 25% faster than the base speed vertically.
       Size should be same as regular pawns
+
     Green upgrade carriers – don’t fire. Base health – 5
     	Moves Left and Right – Base movement speed – screen width/10 seconds
       When Killed, grant +1  firing rate to all ally spaceships. For example, if firing rate is 3 bullets/second, the new firing rate is 4 bullets/second after killing one of these for both spaceships.

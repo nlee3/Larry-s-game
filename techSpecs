@@ -5,11 +5,11 @@ No feature is a design assumption
 No data structures needed
 
 Key:
-Pawn = Regular Pawn
-Meaty = Big, Meaty Dudes
-Speedy = Offensive, Fast, and Speedy Bois
-Aliens = the three above collectively
-Green = green upgrade carries
+  Pawn = Regular Pawn
+  Meaty = Big, Meaty Dudes
+  Speedy = Offensive, Fast, and Speedy Bois
+  Aliens = the three above collectively
+  Green = green upgrade carries
 
 Features (listed in order of importance from top being the most important)
   Spaceship

@@ -2,7 +2,11 @@
 Information:
 This code relies on sprites for the features(spaceship, aliens, greens) of this game
 No feature is a design assumption
-No data structures needed
+
+Data Structures:
+maybe arrayList, or maybe array (I forgot the difference between them), for the entities that are currently in the game
+  constantly expands as the aliens and greens spawn
+  and remove dead entities from the arrayList or array idk
 
 Key:
   Pawn = Regular Pawn
@@ -146,10 +150,14 @@ Features (listed in order of importance from top being the most important)
       moveRight()
         Time = int with random number between 1 to 5
         Move right at the speed of screen width/10 seconds for time seconds
+        within this function make another function that constantly checks if Game Borders variable atSide == true
+          if atSide == true, go to moveLeft()
         Go to moveLeft()
       moveLeft()
         Time = int with random number between 1 to 5
         Move left at the speed of screen width/10 seconds for time seconds
+        within this function make another function that constantly checks if Game Borders variable atSide == true
+          if atSide == true, go to moveRight()
         Go to moveRight()
       moveDown()
         Moves down at the speed of screen length per 11.25 seconds
@@ -184,10 +192,14 @@ Features (listed in order of importance from top being the most important)
       moveRight()
         Time = int with random number between 1 to 5
         Move right at the speed of screen width/10 seconds for time seconds
+        within this function make another function that constantly checks if Game Borders variable atSide == true
+          if atSide == true, go to moveLeft()
         Go to moveLeft()
       moveLeft()
         Time = int with random number between 1 to 5
         Move left at the speed of screen width/10 seconds for time seconds
+        within this function make another function that constantly checks if Game Borders variable atSide == true
+          if atSide == true, go to moveRight()
         Go to moveRight()
       moveDown()
         Moves down at the speed of screen length per 11.25 seconds
@@ -276,6 +288,38 @@ Features (listed in order of importance from top being the most important)
         Sets random number(based on waveNum) for numGreen and spawns Greens evenly within 10 seconds at random coordinates where the greens appear anywhere along the top borde
       waveUp()
         If isDead == true (meaning all aliens are dead), then waveNum++, all alien lives++, go to stageUp()
+  Game Borders
+    Variables
+      counter (local)
+        int that is set to 0
+      atSide (global)
+        boolean: false, until something touches side borders which sets this to true
+      isCross (local)
+        Boolean: false, until something crosses bottom border which sets this to true
+    Requirements
+      program the borders of the game so that the every time an alien crosses the bottom border, then the value of counter goes up
+      however if the green passes the bottom border then they will just disappear just like the alien, but the counter value does not go up
+      if the aliens or greens hit the side border, than they just bounce off them Off
+      if the counter reaches 6, then the game ends and the player loses
+    Difficulties
+      determining what the counter value should be because the difficulty cannot be predicted merely just by pseudocode
+    Functions
+      crossDetector()
+        determines if the bottom border is crossed
+        sets isCross to true
+        if (isCross == true)
+          check what crossed the border (alien or green?)
+          if (alien crossed)
+            counter++;
+          set isCross back to false;
+      sideDetector()
+        determines if the side border is touched
+        constantly checking if something is touching the side borders
+        sets atSide to true
+        (basically when anything touches the side border there moveLeft or moveRight function ends and immediately switches to moveRight or moveLeft respectively)
+      endGame()
+        if (counter == 6 and gameMode == single player || counter == 12 and gameMode == multiplayer)
+          lose game title screen
   Multiplayer (FYI: Any functions’ or variables’ names that end with “Two” refers to the functions or variables of player two. Any functions’ or variables’ names that end without “Two” refers to the functions or variables of player one)
     Variables
       Lives (local)
@@ -320,7 +364,8 @@ Features (listed in order of importance from top being the most important)
         Lives--;
         If lives == 0, then go to die()
       die()
-        Ends the game, player two wins
+        playerOne dissapears and playerTwo plays on
+        if playerTwo is already dead, then lose screen
       fireTwo()
         “M” for player two
         If “M” held down, shoot based on rof bullets per 1 second
@@ -345,7 +390,8 @@ Features (listed in order of importance from top being the most important)
         LivesTwo--;
         If livesTwo == 0, then go to dieTwo()
       dieTwo()
-        Ends the game, player one wins
+        playerTwo dissapears and playerOne plays on
+        if playerOne is already dead, then lose screen
   Background
     Variables
       Speed (local)
